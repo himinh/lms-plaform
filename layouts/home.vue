@@ -1,6 +1,9 @@
 <script setup lang="ts"></script>
+
 <template>
-	<div class="align-center flex min-h-screen justify-center">
+	<div>
 		<slot />
 	</div>
 </template>
+
+<style lang="scss" scoped></style>

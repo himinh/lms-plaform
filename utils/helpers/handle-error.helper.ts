@@ -1,12 +1,12 @@
-import { ErrorTypeEnum } from "~/enums/exception.enum";
+import { ErrorTypeEnum } from '../enums';
 
 const formatErrorMsg = (details: string[], errorType: string) => {
 	const messages = details.map((message) => {
-		const words = message.split(" ");
+		const words = message.split(' ');
 
 		const label = words[0];
 
-		const msg = words.slice(1).join(" ");
+		const msg = words.slice(1).join(' ');
 
 		switch (errorType) {
 			case ErrorTypeEnum.ValidationExceptions:
@@ -17,7 +17,7 @@ const formatErrorMsg = (details: string[], errorType: string) => {
 		}
 	});
 
-	return messages.join("\n");
+	return messages.join('\n');
 };
 
 export const handleError = (error: any) => {

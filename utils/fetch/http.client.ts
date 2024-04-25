@@ -1,4 +1,4 @@
-import type { FetchOptions, MethodType, PaginationParams } from "./types";
+import type { FetchOptions, MethodType, PaginationParams } from '../types';
 
 export class HttpClient {
 	private readonly isAuth: boolean;
@@ -11,7 +11,7 @@ export class HttpClient {
 		method: MethodType,
 		endpoint: string,
 		requestData?: any,
-		opts?: FetchOptions,
+		opts?: FetchOptions
 	) {
 		const options = {
 			...opts,
@@ -47,25 +47,25 @@ export class HttpClient {
 	}
 
 	get<ResT>(endpoint: string, query?: PaginationParams, opts?: FetchOptions) {
-		return this.request<ResT>("get", endpoint, undefined, {
+		return this.request<ResT>('get', endpoint, undefined, {
 			...opts,
 			query,
 		});
 	}
 
 	post<ResT>(endpoint: string, body: any, opts?: FetchOptions) {
-		return this.request<ResT>("post", endpoint, body, opts);
+		return this.request<ResT>('post', endpoint, body, opts);
 	}
 
 	patch<ResT>(endpoint: string, body: any, opts?: FetchOptions) {
-		return this.request<ResT>("patch", endpoint, body, opts);
+		return this.request<ResT>('patch', endpoint, body, opts);
 	}
 
 	put<ResT>(endpoint: string, body: any, opts?: FetchOptions) {
-		return this.request<ResT>("put", endpoint, body, opts);
+		return this.request<ResT>('put', endpoint, body, opts);
 	}
 
 	delete<ResT>(endpoint: string, opts?: FetchOptions) {
-		return this.request<ResT>("delete", endpoint, undefined, opts);
+		return this.request<ResT>('delete', endpoint, undefined, opts);
 	}
 }

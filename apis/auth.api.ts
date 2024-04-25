@@ -1,8 +1,8 @@
-import type { AuthUser, Login, Register, SocialLogin } from "~/types/auth.type";
-import { authFetch, guestFetch } from "~/utils/fetch";
-import type { FetchOptions } from "~/utils/fetch/types";
+import type { AuthUser, Login, Register, SocialLogin } from '~/types/auth.type';
+import { authFetch, guestFetch } from '~/utils/fetch';
+import type { FetchOptions } from '~/utils/types';
 
-const authUrl = "/auth";
+const authUrl = '/auth';
 
 export const authApi = {
 	login: (data: Login, options?: FetchOptions): Promise<AuthUser> => {
@@ -11,7 +11,7 @@ export const authApi = {
 
 	socialLogin: (
 		data: SocialLogin,
-		options?: FetchOptions,
+		options?: FetchOptions
 	): Promise<AuthUser> => {
 		return guestFetch.post(`${authUrl}/social_login`, data, options);
 	},
@@ -22,14 +22,14 @@ export const authApi = {
 
 	sendRegisterToken: (
 		data: Register,
-		options?: FetchOptions,
+		options?: FetchOptions
 	): Promise<Register> => {
 		return guestFetch.post(`${authUrl}/send_register_token`, data, options);
 	},
 
 	activateRegisterToken: (
 		data: Register,
-		options?: FetchOptions,
+		options?: FetchOptions
 	): Promise<AuthUser> => {
 		return guestFetch.post(`${authUrl}/activate_register_token`, data, options);
 	},
@@ -44,14 +44,14 @@ export const authApi = {
 
 	forgotPassword: (
 		email: string,
-		options?: FetchOptions,
+		options?: FetchOptions
 	): Promise<{ email: string }> => {
 		return guestFetch.post(`${authUrl}/forgot_password`, { email }, options);
 	},
 
 	resetPassword: (
 		body: { token: string; password: string },
-		options?: FetchOptions,
+		options?: FetchOptions
 	): Promise<AuthUser> => {
 		return guestFetch.post(`${authUrl}/reset_password`, body, options);
 	},

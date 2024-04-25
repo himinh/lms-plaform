@@ -1,17 +1,17 @@
-import { authApi } from "~/apis/auth.api";
+import { authApi } from '~/apis/auth.api';
 import type {
 	AuthUser,
 	Login,
 	Register,
 	ResetPassword,
 	SocialLogin,
-} from "~/types/auth.type";
-import { handleError } from "~/utils/handleError";
-import { storageUtil } from "~/utils/storage.util";
+} from '~/types/auth.type';
+import { handleError } from '~/utils/helpers/handle-error.helper';
+import { storageHelper } from '~/utils/helpers/storage.helper';
 
-export const useAuthStore = defineStore("auth", () => {
-	const forgotPassSent = reactive({ isSent: false, email: "" });
-	const authUser = ref<AuthUser | null>(storageUtil.getAuth());
+export const useAuthStore = defineStore('auth', () => {
+	const forgotPassSent = reactive({ isSent: false, email: '' });
+	const authUser = ref<AuthUser | null>(storageHelper.getAuth());
 	const loading = ref<boolean>(false);
 
 	const login = async (inputs: Login) => {
@@ -35,7 +35,7 @@ export const useAuthStore = defineStore("auth", () => {
 	const logout = async () => {
 		await useAsyncData(() => authApi.logout());
 
-		navigateTo("/auth/login");
+		navigateTo('/auth/login');
 		_clearAuth();
 	};
 
@@ -98,14 +98,14 @@ export const useAuthStore = defineStore("auth", () => {
 	 */
 	const _setAuth = (data: AuthUser) => {
 		authUser.value = { ...authUser.value, ...data };
-		storageUtil.setAuth(authUser.value);
+		storageHelper.setAuth(authUser.value);
 	};
 
 	/**
 	 * Clear auth
 	 */
 	const _clearAuth = () => {
-		storageUtil.clearAuth();
+		storageHelper.clearAuth();
 		authUser.value = null;
 	};
 

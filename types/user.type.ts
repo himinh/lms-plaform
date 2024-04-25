@@ -1,6 +1,4 @@
-import type { AccountTypeEnum } from "~/enums/account-type.enum";
-import type { GenderEnum } from "~/enums/gender.enum";
-import type { RoleEnum } from "~/enums/role.enum";
+import type { AccountTypeEnum, GenderEnum, RoleEnum } from '~/utils/enums';
 
 export type User = {
 	email: string | null;
@@ -10,7 +8,7 @@ export type User = {
 
 	_id: string;
 	fullName: string | null;
-	gender: GenderEnum | "";
+	gender: GenderEnum | '';
 	dateOfBirth: number | null;
 	avatar: string | null;
 

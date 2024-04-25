@@ -1,15 +1,36 @@
 export default defineNuxtConfig({
 	devtools: { enabled: true },
-	colorMode: {
-		preference: "light",
-	},
-	// build modules
+
 	modules: [
-		"@nuxt/ui",
-		"nuxt-icon",
-		"nuxt-typed-router",
-		"@pinia/nuxt",
-		"@nuxtjs/eslint-module",
+		'@nuxtjs/tailwindcss',
+		'shadcn-nuxt',
+		'nuxt-typed-router',
+		'@pinia/nuxt',
+		'@nuxtjs/eslint-module',
+		'nuxt-icon',
+	],
+
+	shadcn: {
+		prefix: '',
+		componentDir: './components/ui',
+	},
+
+	components: [
+		{
+			path: '~/components/ui',
+			extensions: ['.vue'],
+			prefix: '',
+		},
+		{
+			path: '~/components/shared',
+			extensions: ['.vue'],
+			prefix: '',
+		},
+		{
+			path: '~/components',
+			extensions: ['.vue'],
+			prefix: '',
+		},
 	],
 
 	// ssr config
@@ -18,9 +39,11 @@ export default defineNuxtConfig({
 	// runtime config
 	runtimeConfig: {
 		app: {},
+		openaiKey: '',
+		replicateKey: '',
+		appUrl: '',
 		public: {
-			apiBase: process.env.API_BASE_URL,
-			firebaseConfig: process.env.API_BASE_URL,
+			apiBase: '',
 		},
 	},
 

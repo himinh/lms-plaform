@@ -1,14 +1,14 @@
-import type { User } from "~/types/user.type";
-import { authFetch, guestFetch } from "~/utils/fetch";
-import type { PaginateResponse } from "../types/paginate-reponse.type";
-import type { FetchOptions, PaginationParams } from "../utils/fetch/types";
+import type { User } from '~/types/user.type';
+import { authFetch, guestFetch } from '~/utils/fetch';
+import type { FetchOptions, PaginationParams } from '~/utils/types';
+import type { PaginateResponse } from '../types/paginate-reponse.type';
 
-const userUrl = "/users";
+const userUrl = '/users';
 
 export const userApi = {
 	getAll: (
 		query?: PaginationParams,
-		options?: FetchOptions,
+		options?: FetchOptions
 	): Promise<User[]> => {
 		return guestFetch.get(`${userUrl}`, query, options);
 	},
@@ -16,7 +16,7 @@ export const userApi = {
 	getById: (
 		id: string,
 		query?: PaginationParams,
-		options?: FetchOptions,
+		options?: FetchOptions
 	): Promise<User> => {
 		return authFetch.get(`${userUrl}/${id}`, query, options);
 	},
@@ -28,7 +28,7 @@ export const userApi = {
 	updateById: (
 		id: string,
 		body: User,
-		options?: FetchOptions,
+		options?: FetchOptions
 	): Promise<User> => {
 		return authFetch.patch(`${userUrl}/${id}`, body, options);
 	},
@@ -55,7 +55,7 @@ export const userApi = {
 
 	paginate: (
 		query?: PaginationParams,
-		options?: FetchOptions,
+		options?: FetchOptions
 	): Promise<PaginateResponse<User>> => {
 		return authFetch.get(`${userUrl}/paginate`, query, options);
 	},

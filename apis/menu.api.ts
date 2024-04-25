@@ -1,9 +1,9 @@
-import type { Menu } from "~/types/menu.type";
-import type { PaginateResponse } from "../types/paginate-reponse.type";
-import { authFetch } from "../utils/fetch";
-import type { PaginationParams } from "../utils/fetch/types";
+import type { Menu } from '~/types/menu.type';
+import type { PaginationParams } from '~/utils/types';
+import type { PaginateResponse } from '../types/paginate-reponse.type';
+import { authFetch } from '../utils/fetch';
 
-const menuUrl = "/menus";
+const menuUrl = '/menus';
 
 export const menuApi = {
 	getAll: (query?: PaginationParams): Promise<Menu[]> => {

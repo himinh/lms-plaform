@@ -1,5 +1,4 @@
-import type { MenuLevelEnum } from "~/enums/menu-level.enum";
-import type { RoleEnum } from "~/enums/role.enum";
+import type { MenuLevelEnum, RoleEnum } from '~/utils/enums';
 
 export type Menu = {
 	readonly parentId?: string;

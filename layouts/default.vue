@@ -1,10 +1,20 @@
 <script setup lang="ts"></script>
 
 <template>
-	<div class="mx-auto">
-		<UContainer>
+	<div>
+		<!-- === Sidebar === -->
+		<div class="fixed inset-y-0 z-50 hidden h-full w-56 md:block">
+			<Sidebar />
+		</div>
+
+		<!-- === Main === -->
+		<main class="md:pl-56">
+			<!-- === Navbar === -->
+			<Navbar />
 			<slot />
-		</UContainer>
+		</main>
+
+		<ProModal />
 	</div>
 </template>
 

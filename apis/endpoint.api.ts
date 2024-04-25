@@ -1,9 +1,9 @@
-import type { Endpoint } from "~/types/endpoint.type";
-import { authFetch } from "~/utils/fetch";
-import type { PaginateResponse } from "../types/paginate-reponse.type";
-import type { PaginationParams } from "../utils/fetch/types";
+import type { Endpoint } from '~/types/endpoint.type';
+import { authFetch } from '~/utils/fetch';
+import type { PaginationParams } from '~/utils/types';
+import type { PaginateResponse } from '../types/paginate-reponse.type';
 
-const endpointUrl = "/endpoints";
+const endpointUrl = '/endpoints';
 
 export const endpointApi = {
 	getAll: (query?: PaginationParams): Promise<Endpoint[]> => {
